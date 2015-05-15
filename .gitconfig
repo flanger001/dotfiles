@@ -1,0 +1,86 @@
+[user]
+    name = David Shaffer
+    email = dave.shaffer@gmail.com
+
+[core]
+    autocrlf = input
+    filemode = false
+    excludesfile = ~/.gitignore_global
+
+[rebase]
+    autosquash = true
+
+[merge]
+    conflictstyle = diff3
+
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = red
+
+[push]
+    # default = simple
+    followTags = true
+
+[url "git@github.com"]
+    insteadOf = gh
+
+[url "https://gist.github.com/"]
+    insteadOf = gist:
+
+[url "git@bitbucket.org"]
+    insteadOf = bb
+
+[alias]
+    amend = commit --amend --no-edit
+    ls = log --pretty=format:'%C(yellow)%h %C(green)[%aN <%aE>] %C(blue)%G? %GK\n%C(reset)%s' --abbrev-commit
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --since=2.weeks
+    st = status
+    br = branch
+    co = checkout
+    ci = commit
+    mg = merge
+    fo = fetch origin
+    sw = switch
+    rb = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = rebase --interactive
+    rbs = !EDITOR=true git rbi
+    rs = reset --soft
+    rsh = reset --soft HEAD^
+    rh = reset --hard
+    rhh = reset --hard HEAD^
+    rpo = remote prune origin
+    rpod = !git co $(git default-branch) && git rpo | grep 'pruned' | "sed -e 's|.*origin/||'" | xargs -I% git br -Df %
+    sync = !git fo && git rpod && git mg || git mg
+    reconcile = !git sync && git co - && git rb $(git default-branch)
+    unstage = reset HEAD --
+    wipe = !git add . && git reset --hard HEAD
+    last = log -1 HEAD
+    head = !echo $(git rev-parse HEAD)
+    fixup-relative = "!fixup_rev() { if [ -n \"$1\" ]; then local git_target=\"HEAD~$1\"; else local git_target=\"HEAD\"; fi; local fixup_rev=\"$(git rev-parse $git_target)\"; echo \"$git_target\"; echo \"$fixup_rev\"; git ci --fixup \"$fixup_rev\"; git rbs \"$fixup_rev^\"; }; fixup_rev"
+    default-branch = "!git_default_branch() { local default_branch=\"$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null)\"; if [ -n \"$default_branch\" ]; then echo \"$(basename $default_branch)\"; else default_branch=\"$(git config --global --get init.defaultBranch)\"; if [ -n \"$default_branch\" ]; then echo $default_branch; else echo \"main\"; fi; fi; }; git_default_branch"
+    rename-default-to = "!rename_default_to() { local branch=$1; if [ -n \"$branch\" ]; then git branch -m master \"$branch\" && git fetch origin && git branch -u \"origin/$branch\" $1 && git remote set-head origin -a; else echo \"Please specify a branch to rename the master branch to.\" && exit 1; fi }; rename_default_to"
+    fixup = "!fixup() { local commit=$1; if [ -n \"$commit\" ]; then git ci --fixup \"$commit\" \"${@:2}\"; fi; }; fixup"
+
+
+[gpg]
+    program = gpg
+
+[init]
+	defaultBranch = main
