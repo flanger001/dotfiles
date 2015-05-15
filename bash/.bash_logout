@@ -1,0 +1,1 @@
+sh ~/space_cowboy.sh
