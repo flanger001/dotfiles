@@ -84,4 +84,4 @@
     program = gpg
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
