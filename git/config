@@ -1,0 +1,49 @@
+[user]
+    name = David Shaffer
+    email = dave.shaffer@gmail.com
+    signingkey = 63C8FC1364A731806C2B07437E57B1F98E0933BE
+
+[core]
+    excludesfile = "~/Dropbox/Coding/Personal/dotfiles/git/ignore"
+    autocrlf = input
+    filemode = false
+
+[merge]
+    conflictstyle = diff3
+
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = red
+
+[push]
+    # default = simple
+
+[url "git@github.com"]
+    insteadOf = gh
+
+[url "https://gist.github.com/"]
+    insteadOf = gist:
+
+[url "git@bitbucket.org"]
+    insteadOf = bb
+
+[include]
+    path = "~/Dropbox/Coding/Personal/dotfiles/git/aliases"
+
+[gpg]
+    program = gpg

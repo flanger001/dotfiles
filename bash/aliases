@@ -1,0 +1,18 @@
+## Rails
+alias r='rails'
+
+## Finder
+alias d='cd ~/Documents'
+alias ls='ls -GFh'
+alias la='ls -GFhla'
+
+## dnsmasq
+alias dnsmasqup='sudo launchctl start homebrew.mxcl.dnsmasq'
+alias dnsmasqdo='sudo launchctl stop homebrew.mxcl.dnsmasq'
+
+alias sudo='sudo '
+alias brew-ready="brew update && brew upgrade && brew cleanup && brew prune"
+alias avd="$ANDROID_HOME/tools/android avd"
+alias android="$ANDROID_HOME/tools/android"
+
+export GPG_TTY=$(tty)

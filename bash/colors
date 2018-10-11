@@ -1,5 +1,7 @@
-export PS1="[\[$White\]\!\[$Color_Off\]] [\[$Cyan\]\D{%F %r}\[$Color_Off\]] \[$IYellow\]\w\[\e[m\]\$: "
+ export PS1="[\[$Cyan\]\D{%F %r}\[$Color_Off\]] \w\$: "
+
+# export PS1="[\[$Cyan\]\D{%F %r}\[$Color_Off\]] \[$IYellow\]\w\[\e[m\]\$: "
 # export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
-export CLICOLOR=1
+# export CLICOLOR=0
 # export LSCOLORS=ExFxBxDxCxegedabagacad # For a lighter screen
 export LSCOLORS=GxFxCxDxBxegedabagaced

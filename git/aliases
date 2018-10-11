@@ -1,0 +1,20 @@
+[alias]
+    amend = commit --amend -a --no-edit
+    ls = log --oneline
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --since=2.weeks
+    st = status
+    br = branch
+    co = checkout
+    ci = commit
+    mg = merge
+    fo = fetch origin
+    rb = rebase
+    rs = reset --soft
+    rh = reset --hard
+    rhh = reset --hard HEAD
+    unstage = reset HEAD --
+    fresh = checkout --
+    ready = !git add . && git rhh && git co . && git st
+    last = log -1 HEAD
+    head = !echo $(git rev-parse head)
+

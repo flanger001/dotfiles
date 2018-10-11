@@ -1,2 +1,0 @@
-export EDITOR='subl -w'
-export HISTFILESIZE=2000
