@@ -1,6 +1,6 @@
 [alias]
     amend = commit --amend -a --no-edit
-    ls = log --oneline
+    ls = log --pretty=format:'%Cblue%h %Cgreen[%aN] %Creset%s' --abbrev-commit --show-signature
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --since=2.weeks
     st = status
     br = branch
