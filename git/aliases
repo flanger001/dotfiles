@@ -12,6 +12,7 @@
     rs = reset --soft
     rh = reset --hard
     rhh = reset --hard HEAD
+    rpo = remote prune origin
     unstage = reset HEAD --
     fresh = checkout --
     ready = !git add . && git rhh && git co . && git st
