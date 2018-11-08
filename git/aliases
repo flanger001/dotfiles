@@ -13,6 +13,7 @@
     rh = reset --hard
     rhh = reset --hard HEAD
     rpo = remote prune origin
+    rpod = !git co master && git rpo 2>&1 | grep 'pruned' | sed -e 's/ \\* \\[pruned\\] origin\\///' | xargs git br -D
     unstage = reset HEAD --
     fresh = checkout --
     ready = !git add . && git rhh && git co . && git st
