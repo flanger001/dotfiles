@@ -26,6 +26,20 @@ showfullpath() {
   fi
 }
 
+showdropshadow() {
+  defaults write com.apple.screencapture disable-shadow -bool false
+  restartfinder
+}
+
+hidedropshadow() {
+  defaults write com.apple.screencapture disable-shadow -bool true
+  restartfinder
+}
+
+restartfinder() {
+  killall SystemUIServer
+}
+
 # I guess this was "reset database hard?
 rdbh() {
   dropdb $1
