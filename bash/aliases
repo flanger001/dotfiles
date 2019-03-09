@@ -11,7 +11,7 @@ alias dnsmasqup='sudo launchctl start homebrew.mxcl.dnsmasq'
 alias dnsmasqdo='sudo launchctl stop homebrew.mxcl.dnsmasq'
 
 alias sudo='sudo '
-alias brew-ready="brew update && brew upgrade && brew cleanup && brew prune"
+alias brew-ready="brew update && brew upgrade && brew cleanup -s && rm -rf \"$(brew --cache)\""
 alias avd="$ANDROID_HOME/tools/android avd"
 alias android="$ANDROID_HOME/tools/android"
 
