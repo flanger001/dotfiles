@@ -9,6 +9,7 @@
     mg = merge
     fo = fetch origin
     rb = rebase
+    rba = !EDITOR=true git rb -i
     rs = reset --soft
     rh = reset --hard
     rhh = reset --hard HEAD
@@ -20,4 +21,3 @@
     ready = !git add . && git reset --hard HEAD && git fresh
     last = log -1 HEAD
     head = !echo $(git rev-parse head)
-

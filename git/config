@@ -8,6 +8,9 @@
     autocrlf = input
     filemode = false
 
+[rebase]
+    autosquash = true
+
 [merge]
     conflictstyle = diff3
 
