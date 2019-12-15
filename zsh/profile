@@ -1,0 +1,7 @@
+export PATH="$PATH:$HOME/scripts"
+
+source "$HOME/Dropbox/Coding/Personal/dotfiles/zsh/aliases"
+source "$HOME/Dropbox/Coding/Personal/dotfiles/zsh/functions"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
