@@ -9,7 +9,10 @@
     mg = merge
     fo = fetch origin
     rb = rebase
-    rba = !EDITOR=true git rb -i
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = rebase --interactive
+    rbs = !EDITOR=true git rbi
     rs = reset --soft
     rh = reset --hard
     rhh = reset --hard HEAD
@@ -17,7 +20,8 @@
     rpod = !git co master && git rpo 2>&1 | grep 'pruned' | sed -e 's/ \\* \\[pruned\\] origin\\///' | xargs git br -D
     sync = !git fo && git rpod && git mg
     unstage = reset HEAD --
-    fresh = !git checkout -- .  && git st
+    fresh = !git checkout -- . && git status
     ready = !git add . && git reset --hard HEAD && git fresh
     last = log -1 HEAD
     head = !echo $(git rev-parse head)
+    rename = !git br -m
