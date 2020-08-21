@@ -63,3 +63,7 @@ dnsmasq-restart() {
 dns-reset() {
   sudo killall -HUP mDNSResponder
 }
+
+tldr() {
+  curl "cheat.sh/$1"
+}
