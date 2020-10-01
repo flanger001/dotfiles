@@ -1,0 +1,6 @@
+export PATH="$PATH:$HOME/scripts"
+export EDITOR="subl --wait"
+source "$HOME/Dropbox/Coding/Personal/dotfiles/zsh/linux/aliases"
+source "$HOME/Dropbox/Coding/Personal/dotfiles/zsh/linux/functions"
+
+eval "$(rbenv init -)"

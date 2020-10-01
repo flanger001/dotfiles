@@ -1,0 +1,69 @@
+showfiles() {
+  if [ "$1" = "yes" ]
+    then
+    echo "Showing files"
+    defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app
+  elif [ "$1" = "no" ]
+    then
+    echo "Hiding files"
+    defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app
+  else
+    echo "Doing nothing"
+  fi
+}
+
+showfullpath() {
+  if [ "$1" = "yes" ]
+    then
+    echo "Showing full path"
+    defaults write com.apple.finder _FXShowPosixPathInTitle -bool true; killall Finder /System/Library/CoreServices/Finder.app
+  elif [ "$1" = "no" ]
+    then
+    echo "Hiding full path"
+    defaults write com.apple.finder _FXShowPosixPathInTitle -bool false; killall Finder /System/Library/CoreServices/Finder.app
+  else
+    echo "Doing nothing"
+  fi
+}
+
+showdropshadow() {
+  defaults write com.apple.screencapture disable-shadow -bool false
+  restartfinder
+}
+
+hidedropshadow() {
+  defaults write com.apple.screencapture disable-shadow -bool true
+  restartfinder
+}
+
+restartfinder() {
+  killall SystemUIServer
+}
+
+# I guess this was "reset database hard?
+rdbh() {
+  dropdb $1
+  if [ -n "$2" ]
+    then
+    heroku pg:pull DATABASE_URL $1 -a $2
+  else
+    heroku pg:pull DATABASE_URL $1
+  fi
+}
+
+## dnsmasq
+
+# Run these as sudo
+dnsmasq-restart() {
+  echo "restarting dnsmasq..."
+  sudo launchctl stop homebrew.mxcl.dnsmasq
+  sudo launchctl start homebrew.mxcl.dnsmasq
+}
+
+dns-reset() {
+  sudo killall -HUP mDNSResponder
+}
+
+tldr() {
+  curl "cheat.sh/$1"
+}

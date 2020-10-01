@@ -1,0 +1,14 @@
+## Finder
+alias d="cd ~/Documents"
+alias ls="ls -GFh"
+alias la="ls -GFhla"
+
+## dnsmasq
+alias dnsmasqup="sudo launchctl start homebrew.mxcl.dnsmasq"
+alias dnsmasqdo="sudo launchctl stop homebrew.mxcl.dnsmasq"
+
+alias sudo="sudo "
+alias avd="$ANDROID_HOME/tools/android avd"
+alias android="$ANDROID_HOME/tools/android"
+alias flushdns="echo \"flushing dns...\"; sudo killall -HUP mDNSResponder; echo \"flushed\""
+export GPG_TTY=$(tty)
