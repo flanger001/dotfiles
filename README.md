@@ -18,7 +18,5 @@ source "$DOTFILES_PATH/{SHELL}/{PLATFORM}/profile"
 ```shell
 mkdir -p .config/git
 cd $_
-ln -s "$DOTFILES_PATH/git/config"
-ln -s "$DOTFILES_PATH/git/aliases"
-ln -s "$DOTFILES_PATH/git/ignore"
+ln -s "$DOTFILES_PATH/git"
 ```
