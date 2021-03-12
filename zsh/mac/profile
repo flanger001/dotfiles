@@ -1,7 +1,8 @@
 export PATH="$PATH:$HOME/scripts"
 export EDITOR="subl --wait"
-source "$HOME/Dropbox/Coding/Personal/dotfiles/zsh/mac/aliases"
-source "$HOME/Dropbox/Coding/Personal/dotfiles/zsh/mac/functions"
+
+source "$DOTFILES_PATH/zsh/mac/aliases"
+source "$DOTFILES_PATH/zsh/mac/functions"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
