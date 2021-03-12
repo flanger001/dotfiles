@@ -1,0 +1,8 @@
+reset-network() {
+  sudo modprobe -r igc
+  sudo modprobe -i igc
+}
+
+tldr() {
+  curl "cheat.sh/$1"
+}

@@ -1,0 +1,7 @@
+## Files
+alias d="cd ~/Documents"
+alias ls="ls -GFh"
+alias la="ls -GFhla"
+
+alias sudo="sudo "
+export GPG_TTY=$(tty)
