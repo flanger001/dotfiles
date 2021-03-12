@@ -4,6 +4,8 @@ export EDITOR="subl --wait"
 source "$DOTFILES_PATH/zsh/mac/aliases"
 source "$DOTFILES_PATH/zsh/mac/functions"
 
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
