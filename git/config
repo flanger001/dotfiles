@@ -1,7 +1,7 @@
 [user]
     name = David Shaffer
     email = dave.shaffer@gmail.com
-    signingkey = 63C8FC1364A731806C2B07437E57B1F98E0933BE
+    # signingkey = 63C8FC1364A731806C2B07437E57B1F98E0933BE
 
 [core]
     excludesfile = "~/Dropbox/Coding/Personal/dotfiles/git/ignore"
