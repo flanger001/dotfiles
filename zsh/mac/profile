@@ -5,7 +5,7 @@ source "$DOTFILES_PATH/zsh/mac/aliases"
 source "$DOTFILES_PATH/zsh/mac/functions"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 autoload -U add-zsh-hook
 load-nvmrc() {
