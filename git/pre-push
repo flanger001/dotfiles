@@ -1,0 +1,8 @@
+#! /usr/bin/env ruby
+
+if system("bundle exec rubocop")
+  puts "Rubocop is pleased."
+else
+  puts "Rubocop demands penance."
+  exit(1)
+end
