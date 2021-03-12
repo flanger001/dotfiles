@@ -1,19 +1,24 @@
 # Dotfiles
 
-My git and bash stuff. Assumptions:
+My git and shell stuff. Works for bash and zsh.
 
-* Running macOS
-* Using `rbenv` for ruby
-* Using `nvm` for node
-* `gpg` exists somewhere in your path
-* There is a `~/scripts` directory in the home dir
-* Other stuff, probably
+## Instructions
 
-The cool part with this is I keep all my code in Dropbox, so if I go to another machine, all I need to do is:
+### Shell
 
-```bash
-$ echo -e "source ~/Dropbox/Coding/Personal/dotfiles/bash/profile" > ~/.bash_profile
-$ echo -e "[include]\n    path = \"~/Dropbox/Coding/Personal/dotfiles/git/config\"" > .gitconfig
+Set `$DOTFILES_PATH` to wherever this repository is and put it in your shell config:
+
+```shell
+export DOTFILES_PATH="$HOME/Coding/dotfiles"
+source "$DOTFILES_PATH/{SHELL}/{PLATFORM}/profile"
 ```
 
-Everything works as expected!
+### Git
+
+```shell
+mkdir -p .config/git
+cd $_
+ln -s "$DOTFILES_PATH/git/config"
+ln -s "$DOTFILES_PATH/git/aliases"
+ln -s "$DOTFILES_PATH/git/ignore"
+```
