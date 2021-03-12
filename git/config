@@ -4,7 +4,6 @@
     # signingkey = 63C8FC1364A731806C2B07437E57B1F98E0933BE
 
 [core]
-    excludesfile = "~/Dropbox/Coding/Personal/dotfiles/git/ignore"
     autocrlf = input
     filemode = false
 
@@ -46,7 +45,7 @@
     insteadOf = bb
 
 [include]
-    path = "~/Dropbox/Coding/Personal/dotfiles/git/aliases"
+    path = aliases
 
 [gpg]
     program = gpg
