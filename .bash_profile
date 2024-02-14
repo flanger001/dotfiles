@@ -67,6 +67,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$RBENV_ROOT/bin:$PATH"
 export PATH="$NODENV_ROOT/bin:$PATH"
 
+if [[ -e /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 if command -v rbenv 1>/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
@@ -84,3 +88,6 @@ export PATH=$PATH:/usr/local/go/bin
 if [[ -e "$HOME/.cargo/env" ]]; then
     source "$HOME/.cargo/env"
 fi
+
+export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
+export NODE_TLS_REJECT_UNAUTHORIZED="0"
