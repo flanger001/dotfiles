@@ -1,5 +1,5 @@
 ### Aliases ###
-alias ls="ls --group-directories-first"
+alias ls="gls --color=auto --group-directories-first"
 
 showfiles() {
   if [ "$1" = "yes" ]
@@ -61,6 +61,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$RBENV_ROOT/bin:$PATH"
 export PATH="$NODENV_ROOT/bin:$PATH"
 
+if [[ -e /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 if command -v rbenv 1>/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
@@ -83,3 +87,10 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND="rg --files"
   export FZF_DEFAULT_OPTS="-m"
 fi
+
+# export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
+# export NODE_TLS_REJECT_UNAUTHORIZED="0"
+export EDITOR="code --wait"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
