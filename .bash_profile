@@ -1,6 +1,5 @@
 ### Aliases ###
-alias ls="ls -G --group-directories-first"
-alias la="ls -Ga"
+alias ls="ls --group-directories-first"
 alias sudo="sudo "
 
 ### Functions ###
