@@ -62,3 +62,5 @@ export PATH=$PATH:/usr/local/go/bin
 if [[ -e "$HOME/.cargo/env" ]]; then
     source "$HOME/.cargo/env"
 fi
+
+echo "Last login: $(lastlog -u $USER | tail -n 1 | awk '{ $1=""; $2=""; gsub(/^ +| +$/, ""); print}')"
