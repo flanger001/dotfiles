@@ -1,7 +1,5 @@
 ### Aliases ###
-alias ls="ls -G"
-alias la="ls -Ga"
-alias sudo="sudo "
+alias ls="ls --group-directories-first"
 
 ### Functions ###
 reset-network() {
@@ -45,5 +43,10 @@ fi
 export PATH=$PATH:/usr/local/go/bin
 
 if [[ -e "$HOME/.cargo/env" ]]; then
-    source "$HOME/.cargo/env"
+  . "$HOME/.cargo/env"
+fi
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND="rg --files"
+  export FZF_DEFAULT_OPTS="-m"
 fi
