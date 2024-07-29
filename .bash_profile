@@ -1,7 +1,5 @@
 ### Aliases ###
-alias ls="ls -G"
-alias la="ls -Ga"
-alias sudo="sudo "
+alias ls="ls --group-directories-first"
 
 ### Functions ###
 reset-network() {
