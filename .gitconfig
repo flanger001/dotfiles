@@ -46,6 +46,9 @@
 [url "git@bitbucket.org"]
     insteadOf = bb
 
+[url "git@ssh.dev.azure.com"]
+    insteadOf = az
+
 [alias]
     amend = commit --amend --no-edit
     ls = log --pretty=format:'%C(yellow)%h %C(green)[%aN <%aE>] %C(blue)%G? %GK\n%C(reset)%s' --abbrev-commit
@@ -85,3 +88,9 @@
 
 [init]
 	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
