@@ -11,7 +11,7 @@
     autosquash = true
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [color]
     ui = true
@@ -50,31 +50,40 @@
     insteadOf = az
 
 [alias]
-    amend = commit --amend --no-edit
-    ls = log --pretty=format:'%C(yellow)%h %C(green)[%aN <%aE>] %C(blue)%G? %GK\n%C(reset)%s' --abbrev-commit
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --since=2.weeks
+    amend = ci --amend --no-edit
+    ls = log --pretty=format:'%ai %C(red)%h %C(green)[%aN <%aE>] %C(blue)-%C(reset) %s' --abbrev-commit
+    lg = log --graph --pretty=format:'%ai %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit --since=2.weeks
     st = status
     br = branch
     co = checkout
-    ci = commit
+    ci = commit --no-verify
+    civ = commit
+    cp = cherry-pick
+    cpa = cp --abort
+    cpc = cp --continue
     mg = merge
+    mga = mg --abort
+    mgc = mg --continue
     fo = fetch origin
     sw = switch
     rb = rebase
-    rba = rebase --abort
-    rbc = rebase --continue
-    rbi = rebase --interactive
+    rba = rb --abort
+    rbc = rb --continue
+    rbi = rb --interactive
+    rv = revert
+    rva = rv --abort
+    rvc = rv --continue
     rbs = !EDITOR=true git rbi
     rs = reset --soft
     rsh = reset --soft HEAD^
     rh = reset --hard
     rhh = reset --hard HEAD^
     rpo = remote prune origin
-    rpod = !git co $(git default-branch) && git rpo | grep 'pruned' | "sed -e 's|.*origin/||'" | xargs -I% git br -Df %
+    rpod = !git sw $(git default-branch) && git rpo | grep 'pruned' | "sed -e 's|.*origin/||'" | xargs -I% git br -Df %
     sync = !git fo && git rpod && git mg || git mg
-    reconcile = !git sync && git co - && git rb $(git default-branch)
-    unstage = reset HEAD --
-    wipe = !git add . && git reset --hard HEAD
+    reconcile = !git sync && git sw - && git rb $(git default-branch)
+    unstage = restore --staged
+    wipe = !git unstage . && git restore .
     last = log -1 HEAD
     head = !echo $(git rev-parse HEAD)
     fixup-relative = "!fixup_rev() { if [ -n \"$1\" ]; then local git_target=\"HEAD~$1\"; else local git_target=\"HEAD\"; fi; local fixup_rev=\"$(git rev-parse $git_target)\"; echo \"$git_target\"; echo \"$fixup_rev\"; git ci --fixup \"$fixup_rev\"; git rbs \"$fixup_rev^\"; }; fixup_rev"
@@ -82,15 +91,16 @@
     rename-default-to = "!rename_default_to() { local branch=$1; if [ -n \"$branch\" ]; then git branch -m master \"$branch\" && git fetch origin && git branch -u \"origin/$branch\" $1 && git remote set-head origin -a; else echo \"Please specify a branch to rename the master branch to.\" && exit 1; fi }; rename_default_to"
     fixup = "!fixup() { local commit=$1; if [ -n \"$commit\" ]; then git ci --fixup \"$commit\" \"${@:2}\"; fi; }; fixup"
 
-
 [gpg]
     program = gpg
 
 [init]
 	defaultBranch = main
+
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
+
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
