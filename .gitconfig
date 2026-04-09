@@ -1,6 +1,6 @@
 [user]
-    name = David Shaffer
-    email = dave.shaffer@gmail.com
+    name = flanger001
+    email = 1645017+flanger001@users.noreply.github.com
 
 [core]
     autocrlf = input
@@ -36,18 +36,6 @@
     # default = simple
     followTags = true
 	autoSetupRemote = true
-
-[url "git@github.com"]
-    insteadOf = gh
-
-[url "https://gist.github.com/"]
-    insteadOf = gist:
-
-[url "git@bitbucket.org"]
-    insteadOf = bb
-
-[url "git@ssh.dev.azure.com"]
-    insteadOf = az
 
 [alias]
     amend = commit --amend --no-edit

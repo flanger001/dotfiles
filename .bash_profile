@@ -1,3 +1,8 @@
+# Shell options ###
+shopt -s \
+    autocd \
+    cdspell
+
 ### Aliases ###
 alias ls="gls --color=auto --group-directories-first"
 
@@ -94,3 +99,6 @@ export EDITOR="code --wait"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+export PATH="/usr/local/bin/:${PATH}"
