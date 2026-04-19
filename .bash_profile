@@ -52,10 +52,11 @@ restartfinder() {
 ### Exports & PATH ###
 RESET="$(tput sgr0)"
 BOLD="$(tput bold)"
-WHITE="$(tput setaf 007)"
+WHITE="$(tput setaf 7)"
 PURPLE="$(tput setaf 5)"
+GREEN="$(tput setaf 2)"
 
-export PS1="\[${RESET}\]\[${BOLD}\]\[${WHITE}\]\D{%F} \t\[${RESET}\] \[${PURPLE}\]\u\[${RESET}\] \W \$ "
+export PS1="\[${RESET}\]\[${BOLD}\]\[${WHITE}\]\D{%F} \t\[${RESET}\] \[${PURPLE}\]\u\[${RESET}\]@\[${GREEN}\]\h\[${RESET}\] \W \$ "
 export GPG_TTY=$(tty)
 
 export PYENV_ROOT="$HOME/.pyenv"
