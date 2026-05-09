@@ -55,8 +55,9 @@ BOLD="$(tput bold)"
 WHITE="$(tput setaf 7)"
 PURPLE="$(tput setaf 5)"
 GREEN="$(tput setaf 2)"
+CYAN="$(tput setaf 6)"
 
-export PS1="\[${RESET}\]\[${BOLD}\]\[${WHITE}\]\D{%F} \t\[${RESET}\] \[${PURPLE}\]\u\[${RESET}\]@\[${GREEN}\]\h\[${RESET}\] \W \$ "
+export PS1="\[${RESET}\]\[${PURPLE}\]\u\[${RESET}\]@\[${CYAN}\]\h\[${RESET}\] \W \$ "
 export GPG_TTY=$(tty)
 
 export PYENV_ROOT="$HOME/.pyenv"
